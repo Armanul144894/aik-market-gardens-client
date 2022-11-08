@@ -12,6 +12,9 @@ const Header = () => {
       <Link className="font-semibold btn btn-ghost ml-5" to="/blogs">
         Blogs
       </Link>
+      <Link className="font-semibold btn btn-ghost ml-5" to="/login">
+        Login
+      </Link>
     </>
   );
 
