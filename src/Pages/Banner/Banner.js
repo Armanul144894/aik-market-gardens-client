@@ -3,8 +3,8 @@ import img1 from "../../assets/carousal/img1.png";
 import img2 from "../../assets/carousal/img2.png";
 import img3 from "../../assets/carousal/img3.png";
 import img4 from "../../assets/carousal/img4.png";
-// import img5 from "../../assets/carousal/img1.png";
-// import img6 from "../../assets/carousal/img1.png";
+import img5 from "../../assets/carousal/img5.png";
+import img6 from "../../assets/carousal/img6.png";
 import "./Banner.css";
 import BannerItems from "./BannerItems/BannerItems";
 
@@ -34,18 +34,18 @@ const Banner = () => {
       id: 4,
       next: 5,
     },
-    // {
-    //   image: img5,
-    //   prev: 4,
-    //   id: 5,
-    //   next: 6,
-    // },
-    // {
-    //   image: img6,
-    //   prev: 5,
-    //   id: 6,
-    //   next: 1,
-    // },
+    {
+      image: img5,
+      prev: 4,
+      id: 5,
+      next: 6,
+    },
+    {
+      image: img6,
+      prev: 5,
+      id: 6,
+      next: 1,
+    },
   ];
   return (
     <div className="carousel w-full mb-10 ">

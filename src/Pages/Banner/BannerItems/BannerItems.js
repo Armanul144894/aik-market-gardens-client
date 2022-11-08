@@ -6,25 +6,26 @@ const BannerItems = ({ slide }) => {
   return (
     <div id={`slide${id}`} className="carousel-item relative w-full">
       <div className=" carousel-img">
-        <img src={image} alt="" className="w-full rounded slider-img h-96" />
+        <img src={image} alt="" className="w-full rounded slider-img h-full" />
       </div>
-      <div className="flex justify-center absolute top-1/4 ">
+      <div className="flex justify-center absolute top-5 inset-0">
         <div>
-          <h1 className="text-white font-bold text-4xl w-3/4 text-justify">
-            AIK Market Gardens – Quality & Freshness
+          <h1 className="text-white font-bold text-2xl text-justify">
+            <strong>AIK Market Gardens</strong>
           </h1>
-          <p className="text-white">
-            We grow, pack, market & distribute quality fresh herbs, spring
-            onions, vegetables & Asian vegetables.
-          </p>
+          <h1 className="text-white font-bold text-2xl text-justify">
+            <strong>Quality & Freshness</strong>
+          </h1>
         </div>
       </div>
-      <div className=" flex absolute bottom-5 w-2/5 top-1/2 left-24"></div>
-      {/* <div className=" flex absolute gap-5 top-2/3 left-24 ">
-        <button className="btn btn-error text-white ">Discover More</button>
-        <button className="btn btn-outline text-white ">Button</button>
-      </div> */}
-      <div className=" flex absolute gap-3 bottom-5 left-1/2">
+      <div className="flex justify-center absolute top-24">
+        <p className="text-white w-3/4">
+          I grow, pack, market & distribute quality fresh herbs, spring onions,
+          vegetables, flowers, fresh fruits & Asian vegetables.
+        </p>
+      </div>
+
+      <div className=" flex justify-center bottom-5 left-1/2 absolute gap-3  ">
         <a href={`#slide${prev}`} className="btn btn-circle">
           ❮
         </a>
