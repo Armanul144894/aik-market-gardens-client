@@ -1,0 +1,14 @@
+.img-gradient:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: linear-gradient(90deg, #614f4f 0%, rgba(137, 51, 51, 0) 80%);
+  border-radius: 12px;
+}
+.img-gradient img {
+  display: block;
+}
