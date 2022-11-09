@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
+  const { user } = useContext(AuthContext);
   const { img, title, price, _id, description, facility } = service;
   //   console.log(service);
+
+  const handlePlaceReview = () => {};
   return (
     <div>
       <div className="card mb-10 h-full glass">
@@ -23,7 +27,64 @@ const ServiceDetails = () => {
           </div>
         </div>
       </div>
-      <div></div>
+      <div>
+        <div className="my-10">
+          <h2>Review</h2>
+          <img className="w-full h-80" src={img} alt="" />
+          <p>{title}</p>
+
+          <div className="card bg-gray-100 my-10">
+            <div className="text-center py-5">
+              <h2 className="text-4xl font-bold">{title}</h2>
+              <h4 className="font-bold text-red-500">Price: ${price}</h4>
+            </div>
+            <div className="card-body">
+              <form onSubmit={handlePlaceReview}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    className="input input-bordered w-full"
+                  />
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    className="input input-bordered w-full"
+                  />
+
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Your Phone"
+                    className="input input-bordered w-full"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Your Email"
+                    defaultValue={user?.email}
+                    className="input input-bordered w-full"
+                    readOnly
+                  />
+                </div>
+                <textarea
+                  name="message"
+                  className="textarea textarea-bordered w-full h-40 mt-8"
+                  placeholder="Your Message"
+                ></textarea>
+                <input
+                  className="btn btn-accent text-white font-bold w-full mt-5 mb-10"
+                  type="submit"
+                  value="Order Confirm"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

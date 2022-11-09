@@ -5,10 +5,10 @@ const BannerItems = ({ slide }) => {
   const { image, id, prev, next } = slide;
   return (
     <div id={`slide${id}`} className="carousel-item relative w-full">
-      <div className=" carousel-img">
+      <div className=" p-5 carousel-img">
         <img src={image} alt="" className="w-full rounded slider-img h-full" />
       </div>
-      <div className="flex justify-center absolute top-5 inset-0">
+      <div className="flex justify-center absolute top-8 inset-0">
         <div>
           <h1 className="text-white font-bold text-2xl text-justify">
             <strong>AIK Market Gardens</strong>
@@ -19,9 +19,10 @@ const BannerItems = ({ slide }) => {
         </div>
       </div>
       <div className="flex justify-center absolute top-24">
-        <p className="text-white w-3/4">
+        <p className="text-white w-11/12">
           I grow, pack, market & distribute quality fresh herbs, spring onions,
-          vegetables, flowers, fresh fruits & Asian vegetables.
+          vegetables, flowers, fresh fruits, organic products & Asian
+          vegetables.
         </p>
       </div>
 
