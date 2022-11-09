@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import SocialLogin from "./SocialLogin/SocialLogin";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, setUser } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -15,6 +15,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    setUser();
     signIn(email, password)
       .then((result) => {
         const user = result.user;

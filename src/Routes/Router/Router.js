@@ -5,6 +5,7 @@ import AllServices from "../../Pages/AllServices/AllServices";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Register from "../../Pages/Register/Register";
 
 import ServiceDetails from "../../Pages/Services/ServiceDetails/ServiceDetails";
@@ -39,6 +40,10 @@ const Router = () => {
         {
           path: "/register",
           element: <Register></Register>,
+        },
+        {
+          path: "myReviews",
+          element: <MyReviews></MyReviews>,
         },
         {
           path: "/blogs",

@@ -1,14 +1,53 @@
 import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
-  const { img, title, price, _id, description, facility } = service;
+  const { img, title, price, _id, description } = service;
   //   console.log(service);
 
-  const handlePlaceReview = () => {};
+  const handlePlaceReview = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const name = `${firstName} ${lastName}`;
+    const phone = form.phone.value;
+    const email = user?.email || "unregistered";
+    const message = form.message.value;
+    console.log(name, phone, email, message);
+
+    const review = {
+      service: _id,
+      serviceName: title,
+      price,
+      customer: name,
+      phone,
+      email,
+      message,
+    };
+
+    fetch("http://localhost:5000/reviews", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        if (data.acknowledged) {
+          alert("order placed successfully");
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
   return (
     <div>
       <div className="card mb-10 h-full glass">
@@ -21,9 +60,6 @@ const ServiceDetails = () => {
               <p className="text-red-600 font-bold">Price: ${price}</p>
               <p>{description}</p>
             </div>
-            <Link to={`/details/${_id}`}>
-              <button className="btn btn-outline">Details</button>
-            </Link>
           </div>
         </div>
       </div>
