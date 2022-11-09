@@ -32,7 +32,11 @@ const Router = () => {
           loader: ({ params }) => {
             return fetch(`http://localhost:5000/services/${params.id}`);
           },
-          element: <ServiceDetails></ServiceDetails>,
+          element: (
+            <PrivateRouter>
+              <ServiceDetails></ServiceDetails>
+            </PrivateRouter>
+          ),
         },
 
         {

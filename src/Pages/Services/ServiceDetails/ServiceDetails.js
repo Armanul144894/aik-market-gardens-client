@@ -28,6 +28,7 @@ const ServiceDetails = () => {
       serviceName: title,
       price,
       customer: name,
+      serviceImage: img,
       image,
       email,
       message,
