@@ -38,10 +38,12 @@ const AuthProvider = ({ children }) => {
   };
 
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const logout = () => {
+    setLoading(true);
     return signOut(auth);
   };
   const authInfo = {

@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import MyReviews from "../../MyReviews/MyReviews";
+import ServiceReview from "../ServiceReview/ServiceReview";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
+  //   const [serviceReview, setServiceReview] = useState();
   const { img, title, price, _id, description } = service;
-  //   console.log(service);
+
+  console.log(service);
 
   const handlePlaceReview = (event) => {
     event.preventDefault();
@@ -14,17 +18,17 @@ const ServiceDetails = () => {
     const firstName = form.firstName.value;
     const lastName = form.lastName.value;
     const name = `${firstName} ${lastName}`;
-    const phone = form.phone.value;
+    const image = form.image.value;
     const email = user?.email || "unregistered";
     const message = form.message.value;
-    console.log(name, phone, email, message);
+    console.log(name, image, email, message);
 
     const review = {
-      service: _id,
+      serviceId: _id,
       serviceName: title,
       price,
       customer: name,
-      phone,
+      image,
       email,
       message,
     };
@@ -48,6 +52,7 @@ const ServiceDetails = () => {
         console.error("Error:", error);
       });
   };
+
   return (
     <div>
       <div className="card mb-10 h-full glass">
@@ -64,11 +69,10 @@ const ServiceDetails = () => {
         </div>
       </div>
       <div>
+        <MyReviews></MyReviews>
+      </div>
+      <div>
         <div className="my-10">
-          <h2>Review</h2>
-          <img className="w-full h-80" src={img} alt="" />
-          <p>{title}</p>
-
           <div className="card bg-gray-100 my-10">
             <div className="text-center py-5">
               <h2 className="text-4xl font-bold">{title}</h2>
@@ -91,12 +95,13 @@ const ServiceDetails = () => {
                   />
 
                   <input
-                    type="text"
-                    name="phone"
-                    placeholder="Your Phone"
+                    type="url"
+                    name="image"
+                    placeholder="Your Image"
                     className="input input-bordered w-full"
                     required
                   />
+
                   <input
                     type="text"
                     name="email"

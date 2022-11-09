@@ -4,10 +4,10 @@ import logo from "../../assets/logo/img1.png";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
   const handleLogout = () => {
-    logOut()
+    logout()
       .then(() => {
         alert("Logout Successfully");
       })
@@ -23,22 +23,25 @@ const Header = () => {
         Blogs
       </Link>
       {user?.email ? (
+        <>
+          <Link className="font-semibold btn btn-ghost ml-5" to="/myReviews">
+            My Reviews
+          </Link>
+          <Link className="font-semibold btn btn-ghost ml-5" to="/addServices">
+            Add Services
+          </Link>
+          <button
+            onClick={handleLogout}
+            className=" rounded btn-ghost font-semibold ml-5"
+          >
+            Logout
+          </button>
+        </>
+      ) : (
         <Link className="font-semibold btn btn-ghost ml-5" to="/login">
           Login
         </Link>
-      ) : (
-        <Link
-          onClick={handleLogout}
-          className="font-semibold btn btn-ghost ml-5"
-          to="/login"
-        >
-          Logout
-        </Link>
       )}
-
-      <Link className="font-semibold btn btn-ghost ml-5" to="/myReviews">
-        My Reviews
-      </Link>
     </>
   );
 
@@ -78,9 +81,6 @@ const Header = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
-      </div>
-      <div className="navbar-end">
-        <button className="btn btn-outline btn-warning">Appointment</button>
       </div>
     </div>
   );

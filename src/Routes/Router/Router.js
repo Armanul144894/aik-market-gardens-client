@@ -6,9 +6,11 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
+import UserReview from "../../Pages/MyReviews/UserReview/UserReview";
 import Register from "../../Pages/Register/Register";
 
 import ServiceDetails from "../../Pages/Services/ServiceDetails/ServiceDetails";
+import PrivateRouter from "../PrivateRouter/PrivateRouter";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -43,7 +45,11 @@ const Router = () => {
         },
         {
           path: "myReviews",
-          element: <MyReviews></MyReviews>,
+          element: (
+            <PrivateRouter>
+              <UserReview></UserReview>
+            </PrivateRouter>
+          ),
         },
         {
           path: "/blogs",
