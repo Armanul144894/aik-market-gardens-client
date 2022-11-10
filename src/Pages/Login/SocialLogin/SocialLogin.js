@@ -15,7 +15,7 @@ const SocialLogin = () => {
         const user = result.user;
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
   return (
     <div>

@@ -10,11 +10,10 @@ import toast, { Toaster } from "react-hot-toast";
 const ServiceDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
-  //   const [serviceReview, setServiceReview] = useState();
+
   const { img, title, price, _id, description } = service;
 
   useTitle(`${title}`);
-  console.log(service);
 
   const handlePlaceReview = (event) => {
     event.preventDefault();
@@ -25,7 +24,6 @@ const ServiceDetails = () => {
     const image = form.image.value;
     const email = user?.email || "unregistered";
     const message = form.message.value;
-    console.log(name, image, email, message);
 
     const review = {
       serviceId: _id,
@@ -47,7 +45,6 @@ const ServiceDetails = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         if (data.acknowledged) {
           toast.success("Review placed successfully");
           form.reset();

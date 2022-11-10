@@ -36,12 +36,12 @@ const Login = () => {
         })
           .then((response) => response.json())
           .then((data) => {
-            // console.log("Success:", data);
+            // ("Success:", data);
             localStorage.setItem("aikToken", data.token);
           });
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
   if (loading) {
     return <div className="loader absolute left-1/2 top-20"></div>;

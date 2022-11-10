@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const ServiceReviewRow = ({ review }) => {
   const { serviceId } = review;
-  console.log(serviceId);
+  serviceId;
   const [serviceReview, setServiceReview] = useState([]);
 
   useEffect(() => {

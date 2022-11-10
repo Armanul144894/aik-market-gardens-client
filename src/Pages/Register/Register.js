@@ -12,11 +12,11 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    name, email, password;
     cerateUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        user;
         if (loading) {
           return;
         }

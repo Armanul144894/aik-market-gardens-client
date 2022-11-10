@@ -6,7 +6,6 @@ import ServiceItems from "../ServiceItems/ServiceItems";
 const Services = () => {
   const [services, setServices] = useState([]);
   const { loading } = useContext(AuthContext);
-  console.log(services);
 
   useEffect(() => {
     fetch(`https://aik-market-gardens-server.vercel.app/services`)

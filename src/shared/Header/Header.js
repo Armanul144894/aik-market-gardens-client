@@ -12,7 +12,7 @@ const Header = () => {
       .then(() => {
         toast.success("Logout Successfully");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
   const menuItems = (
     <>
