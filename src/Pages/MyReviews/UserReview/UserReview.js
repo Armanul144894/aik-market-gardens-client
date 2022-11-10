@@ -44,7 +44,7 @@ const UserReview = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          data;
+          console.log(data);
           if (data.deletedCount > 0) {
             toast("Deleted Successfully");
             const remaining = reviews.filter((order) => order._id !== id);
@@ -64,7 +64,6 @@ const UserReview = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        "Success:", data;
         if (data.modifiedCount > 0) {
           const remaining = reviews.filter((review) => review._id !== id);
           const approving = reviews.find((review) => review._id === id);

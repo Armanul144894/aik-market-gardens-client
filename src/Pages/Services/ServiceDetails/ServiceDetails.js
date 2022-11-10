@@ -133,17 +133,17 @@ const ServiceDetails = () => {
           </>
         ) : (
           <>
-            <div className="mx-auto">
-              <div className="card absu ">
-                <div className="card w-96 bg-base-100 shadow-xl">
+            <div>
+              <div className="card w-full ">
+                <div className="card  bg-slate-300 shadow-xl">
                   <div className="card-body items-center text-center">
-                    <h2 className="card-title font-bold text-yellow-500">
+                    <h2 className="card-title font-bold text-yellow-700">
                       Add Review
                     </h2>
-                    <p> Please login to add a review</p>
+                    <p> Please login to add a review.</p>
                     <div className="card-actions">
                       <Link to="/login">
-                        <button className="btn btn-primary text-white">
+                        <button className="btn btn-primary px-20 font-bold text-white">
                           Login
                         </button>
                       </Link>
