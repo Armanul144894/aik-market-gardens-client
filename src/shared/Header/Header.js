@@ -42,6 +42,9 @@ const Header = () => {
           Login
         </Link>
       )}
+      <Link className="font-semibold btn btn-ghost ml-5" to="/blank">
+        Blank-Routes
+      </Link>
     </>
   );
 
