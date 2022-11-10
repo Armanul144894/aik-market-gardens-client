@@ -36,7 +36,7 @@ const AddServices = () => {
       .then((data) => {
         console.log("Success:", data);
         if (data.acknowledged) {
-          alert("order placed successfully");
+          alert("Service Added Successfully");
           form.reset();
         }
       })
@@ -56,6 +56,7 @@ const AddServices = () => {
                   name="title"
                   placeholder="Title"
                   className="input input-bordered w-full"
+                  required
                 />
                 <input
                   type="number"
@@ -77,12 +78,14 @@ const AddServices = () => {
                   name="price"
                   placeholder="Price"
                   className="input input-bordered w-full"
+                  required
                 />
               </div>
               <textarea
                 name="description"
                 className="textarea textarea-bordered w-full h-40 mt-8"
                 placeholder="Description"
+                required
               ></textarea>
               <input
                 className="btn btn-accent text-white font-bold w-full mt-5 mb-10"

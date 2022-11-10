@@ -7,14 +7,12 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `https://aik-market-gardens-server.vercel.app/reviews?email=${user?.email}`
-    )
+    fetch(`https://aik-market-gardens-server.vercel.app/reviews`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
       });
-  }, [user?.email]);
+  }, []);
 
   return (
     <div>

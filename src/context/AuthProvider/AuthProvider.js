@@ -44,6 +44,7 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setLoading(true);
+    localStorage.removeItem("aikToken");
     return signOut(auth);
   };
   const authInfo = {

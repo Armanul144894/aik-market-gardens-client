@@ -68,13 +68,14 @@ const UserReview = () => {
           const approving = reviews.find((review) => review._id === id);
           approving.status = "Approved";
 
-          const newOrders = [approving, ...remaining];
-          setReviews(newOrders);
+          const newReviews = [approving, ...remaining];
+          setReviews(newReviews);
         }
       })
       .catch((error) => {
         console.error("Error:", error);
       });
+    alert("Update Successfully");
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
