@@ -37,7 +37,7 @@ const ServiceDetails = () => {
       message,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://aik-market-gardens-server.vercel.app/reviews", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const ServiceDetails = () => {
     <div>
       <div className="card mb-10 h-full glass">
         <div className="card-body">
-          <PhotoProvider maskOpacity={0.5}>
+          <PhotoProvider maskOpacity={1}>
             <PhotoView src={img}>
               <img src={img} style={{ objectFit: "cover" }} alt="" />
             </PhotoView>

@@ -21,7 +21,24 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+
+        const currentUser = {
+          email: user.email,
+        };
+
+        //get jwt token
+        fetch("https://aik-market-gardens-server.vercel.app/jwt", {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            localStorage.setItem("geniusToken", data.token);
+          });
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));

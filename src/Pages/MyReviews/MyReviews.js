@@ -7,7 +7,9 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    fetch(
+      `https://aik-market-gardens-server.vercel.app/reviews?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -16,7 +18,6 @@ const MyReviews = () => {
 
   return (
     <div>
-      <h1>reviews</h1>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>

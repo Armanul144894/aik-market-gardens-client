@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import useTitle from "../../Hooks/useTitles";
 
 const AddServices = () => {
+  const { setLoading } = useContext(AuthContext);
+  setLoading();
+  useTitle("Add Service");
   const handleAddService = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,7 +25,7 @@ const AddServices = () => {
       description,
     };
 
-    fetch("http://localhost:5000/services", {
+    fetch("https://aik-market-gardens-server.vercel.app/services", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

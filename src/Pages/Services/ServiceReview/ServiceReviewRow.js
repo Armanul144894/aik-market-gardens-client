@@ -6,7 +6,7 @@ const ServiceReviewRow = ({ review }) => {
   const [serviceReview, setServiceReview] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews`)
+    fetch(`https://aik-market-gardens-server.vercel.app/reviews`)
       .then((res) => res.json())
       .then((data) => {
         const result = review.filter((res) => res.serviceId === data.serviceId);

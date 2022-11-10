@@ -6,7 +6,7 @@ const ShowReviews = ({ review, handleDelete, handleUpdate }) => {
     review;
 
   return (
-    <div className="text-center">
+    <div className="text-center my-10">
       <>
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure className="px-10 pt-10">

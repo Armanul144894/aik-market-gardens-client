@@ -4,12 +4,15 @@ import useTitle from "../../../Hooks/useTitles";
 import ShowReviews from "./ShowReviews";
 
 const UserReview = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setLoading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useTitle("Reviews");
+  setLoading();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    fetch(
+      `https://aik-market-gardens-server.vercel.app/reviews?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -21,7 +24,7 @@ const UserReview = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://aik-market-gardens-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -37,7 +40,7 @@ const UserReview = () => {
   };
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://aik-market-gardens-server.vercel.app/reviews/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

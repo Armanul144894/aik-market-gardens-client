@@ -6,7 +6,7 @@ const AllServices = () => {
   console.log(services);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allServices")
+    fetch("https://aik-market-gardens-server.vercel.app/allServices")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

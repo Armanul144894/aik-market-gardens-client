@@ -31,7 +31,9 @@ const Router = () => {
         {
           path: "/details/:id",
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/services/${params.id}`);
+            return fetch(
+              `https://aik-market-gardens-server.vercel.app/services/${params.id}`
+            );
           },
           element: (
             <PrivateRouter>
@@ -58,7 +60,11 @@ const Router = () => {
         },
         {
           path: "/addServices",
-          element: <AddServices></AddServices>,
+          element: (
+            <PrivateRouter>
+              <AddServices></AddServices>
+            </PrivateRouter>
+          ),
         },
         {
           path: "/blogs",

@@ -9,7 +9,7 @@ const ServiceItems = ({ service }) => {
     <div>
       <div className="card mb-10 h-full glass">
         <div className="card-body">
-          <PhotoProvider maskOpacity={0.5}>
+          <PhotoProvider maskOpacity={1}>
             <PhotoView src={img}>
               <img src={img} style={{ objectFit: "cover" }} alt="" />
             </PhotoView>
