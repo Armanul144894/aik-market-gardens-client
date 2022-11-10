@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ShowReviews = ({ review, handleDelete }) => {
+const ShowReviews = ({ review, handleDelete, handleUpdate }) => {
   const { _id, serviceName, price, message, serviceImage, customer, status } =
     review;
+
   return (
     <div className="text-center">
       <>
@@ -20,7 +22,12 @@ const ShowReviews = ({ review, handleDelete }) => {
               >
                 Delete
               </button>
-              <button className="btn btn-primary">Update</button>
+              <button
+                onClick={() => handleUpdate(_id)}
+                className="btn btn-primary"
+              >
+                {status ? status : "pending"}
+              </button>
             </div>
           </div>
         </div>

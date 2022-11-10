@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useTitle from "../../../Hooks/useTitles";
 import MyReviews from "../../MyReviews/MyReviews";
 import "react-photo-view/dist/react-photo-view.css";
+
 const ServiceDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
