@@ -15,3 +15,4 @@ I grow, pack, market & distribute quality fresh herbs, spring onions, vegetables
 5. Login user can show only their review in My Reviews option.
 6. User can delete their review and it permanently delete from database.
 7. Review data are store in the database.
+8. User can login through Google in my website.

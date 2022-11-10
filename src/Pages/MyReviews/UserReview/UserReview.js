@@ -4,21 +4,34 @@ import useTitle from "../../../Hooks/useTitles";
 import ShowReviews from "./ShowReviews";
 
 const UserReview = () => {
-  const { user, setLoading, loading } = useContext(AuthContext);
+  const { user, loading, logout } = useContext(AuthContext);
 
   const [reviews, setReviews] = useState([]);
   useTitle("Reviews");
 
   useEffect(() => {
     fetch(
-      `https://aik-market-gardens-server.vercel.app/reviews?email=${user?.email}`
+      `https://aik-market-gardens-server.vercel.app/reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("aikToken")}`,
+        },
+      }
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return logout();
+        }
+        return res.json();
+      })
       .then((data) => {
         setReviews(data);
       });
-  }, [user?.email]);
+  }, [user?.email, logout]);
 
+  if (loading) {
+    return;
+  }
   const handleDelete = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to cancel this order"

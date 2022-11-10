@@ -21,9 +21,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        if (loading) {
-          return;
-        }
+
         const currentUser = {
           email: user.email,
         };
@@ -38,13 +36,17 @@ const Login = () => {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log("Success:", data);
-            localStorage.setItem("geniusToken", data.token);
+            if (loading) {
+              return;
+            }
+            // console.log("Success:", data);
+            localStorage.setItem("aikToken", data.token);
           });
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };
+
   return (
     <div>
       <div className="hero w-full my-10">
