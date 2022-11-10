@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/img1.png";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -9,7 +10,7 @@ const Header = () => {
   const handleLogout = () => {
     logout()
       .then(() => {
-        alert("Logout Successfully");
+        toast.success("Logout Successfully");
       })
       .catch((error) => console.log(error));
   };
@@ -85,6 +86,7 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

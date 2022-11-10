@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import Service from "./Service";
 
 const AllServices = () => {
   const [services, setServices] = useState([]);
+  const { loading } = useContext(AuthContext);
   console.log(services);
 
   useEffect(() => {
@@ -10,6 +12,10 @@ const AllServices = () => {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
+
+  if (loading) {
+    return <div className="loader absolute left-1/2 top-20"></div>;
+  }
   return (
     <div>
       {services.map((service) => (

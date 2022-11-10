@@ -17,7 +17,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    setUser(user);
+
     signIn(email, password)
       .then((result) => {
         const user = result.user;
@@ -25,7 +25,7 @@ const Login = () => {
         const currentUser = {
           email: user.email,
         };
-
+        setUser(user);
         //get jwt token
         fetch("https://aik-market-gardens-server.vercel.app/jwt", {
           method: "POST", // or 'PUT'
@@ -36,9 +36,6 @@ const Login = () => {
         })
           .then((response) => response.json())
           .then((data) => {
-            if (loading) {
-              return;
-            }
             // console.log("Success:", data);
             localStorage.setItem("aikToken", data.token);
           });
@@ -46,7 +43,9 @@ const Login = () => {
       })
       .catch((error) => console.log(error));
   };
-
+  if (loading) {
+    return <div className="loader absolute left-1/2 top-20"></div>;
+  }
   return (
     <div>
       <div className="hero w-full my-10">

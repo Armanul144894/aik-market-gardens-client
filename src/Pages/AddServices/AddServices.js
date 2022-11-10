@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../Hooks/useTitles";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddServices = () => {
   const { setLoading } = useContext(AuthContext);
@@ -36,7 +37,7 @@ const AddServices = () => {
       .then((data) => {
         console.log("Success:", data);
         if (data.acknowledged) {
-          alert("Service Added Successfully");
+          toast.success("Service Added Successfully");
           form.reset();
         }
       })
@@ -96,6 +97,7 @@ const AddServices = () => {
           </div>
         </div>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

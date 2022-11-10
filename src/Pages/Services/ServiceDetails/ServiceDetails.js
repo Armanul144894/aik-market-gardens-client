@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useTitle from "../../../Hooks/useTitles";
 import MyReviews from "../../MyReviews/MyReviews";
 import "react-photo-view/dist/react-photo-view.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -48,7 +49,7 @@ const ServiceDetails = () => {
       .then((data) => {
         console.log("Success:", data);
         if (data.acknowledged) {
-          alert("order placed successfully");
+          toast.success("order placed successfully");
           form.reset();
         }
       })
@@ -79,60 +80,87 @@ const ServiceDetails = () => {
         <MyReviews></MyReviews>
       </div>
       <div>
-        <div className="my-10">
-          <div className="card bg-gray-100 my-10">
-            <div className="text-center py-5">
-              <h2 className="text-4xl font-bold">{title}</h2>
-              <h4 className="font-bold text-red-500">Price: ${price}</h4>
-            </div>
-            <div className="card-body">
-              <form onSubmit={handlePlaceReview}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    className="input input-bordered w-full"
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    className="input input-bordered w-full"
-                  />
-
-                  <input
-                    type="url"
-                    name="image"
-                    placeholder="Your Image"
-                    className="input input-bordered w-full"
-                    required
-                  />
-
-                  <input
-                    type="text"
-                    name="email"
-                    placeholder="Your Email"
-                    defaultValue={user?.email}
-                    className="input input-bordered w-full"
-                    readOnly
-                  />
+        {user?.email ? (
+          <>
+            <div className="my-10">
+              <div className="card bg-gray-100 my-10">
+                <div className="text-center py-5">
+                  <h2 className="text-4xl font-bold">{title}</h2>
+                  <h4 className="font-bold text-red-500">Price: ${price}</h4>
                 </div>
-                <textarea
-                  name="message"
-                  className="textarea textarea-bordered w-full h-40 mt-8"
-                  placeholder="Your Message"
-                ></textarea>
-                <input
-                  className="btn btn-accent text-white font-bold w-full mt-5 mb-10"
-                  type="submit"
-                  value="Submit Review"
-                />
-              </form>
+                <div className="card-body">
+                  <form onSubmit={handlePlaceReview}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                      <input
+                        type="text"
+                        name="firstName"
+                        placeholder="First Name"
+                        className="input input-bordered w-full"
+                      />
+                      <input
+                        type="text"
+                        name="lastName"
+                        placeholder="Last Name"
+                        className="input input-bordered w-full"
+                      />
+
+                      <input
+                        type="url"
+                        name="image"
+                        placeholder="Your Image"
+                        className="input input-bordered w-full"
+                        required
+                      />
+
+                      <input
+                        type="text"
+                        name="email"
+                        placeholder="Your Email"
+                        defaultValue={user?.email}
+                        className="input input-bordered w-full"
+                        readOnly
+                      />
+                    </div>
+                    <textarea
+                      name="message"
+                      className="textarea textarea-bordered w-full h-40 mt-8"
+                      placeholder="Your Message"
+                    ></textarea>
+                    <input
+                      className="btn btn-accent text-white font-bold w-full mt-5 mb-10"
+                      type="submit"
+                      value="Submit Review"
+                    />
+                  </form>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </>
+        ) : (
+          <>
+            <div className="mx-auto">
+              <div className="card absu ">
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <div className="card-body items-center text-center">
+                    <h2 className="card-title font-bold text-yellow-500">
+                      Add Review
+                    </h2>
+                    <p> Please login to add a review</p>
+                    <div className="card-actions">
+                      <Link to="/login">
+                        <button className="btn btn-primary text-white">
+                          Login
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

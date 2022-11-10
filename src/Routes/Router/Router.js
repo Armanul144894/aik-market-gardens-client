@@ -36,11 +36,7 @@ const Router = () => {
               `https://aik-market-gardens-server.vercel.app/services/${params.id}`
             );
           },
-          element: (
-            <PrivateRouter>
-              <ServiceDetails></ServiceDetails>
-            </PrivateRouter>
-          ),
+          element: <ServiceDetails></ServiceDetails>,
         },
 
         {
