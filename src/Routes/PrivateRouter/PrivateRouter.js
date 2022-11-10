@@ -7,7 +7,7 @@ const PrivateRouter = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
   if (loading) {
-    return <div className="loader flex justify-center"></div>;
+    return <div className="loader flex align-middle justify-center"></div>;
   }
   if (user) {
     return children;

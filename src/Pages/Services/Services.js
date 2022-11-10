@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import ServiceItems from "../ServiceItems/ServiceItems";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const { loading } = useContext(AuthContext);
   console.log(services);
 
   useEffect(() => {
@@ -11,6 +13,10 @@ const Services = () => {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
+
+  if (loading) {
+    return <div className="loader"></div>;
+  }
   return (
     <div>
       {services.map((service) => (

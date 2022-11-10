@@ -4,10 +4,10 @@ import useTitle from "../../../Hooks/useTitles";
 import ShowReviews from "./ShowReviews";
 
 const UserReview = () => {
-  const { user, setLoading } = useContext(AuthContext);
+  const { user, setLoading, loading } = useContext(AuthContext);
+
   const [reviews, setReviews] = useState([]);
   useTitle("Reviews");
-  setLoading();
 
   useEffect(() => {
     fetch(

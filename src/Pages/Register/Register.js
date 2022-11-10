@@ -4,7 +4,7 @@ import image from "../../assets/login/image.jpg";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../Hooks/useTitles";
 const Register = () => {
-  const { cerateUser } = useContext(AuthContext);
+  const { cerateUser, loading } = useContext(AuthContext);
   useTitle("Register");
   const handleRegister = (event) => {
     event.preventDefault();
@@ -17,6 +17,9 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        if (loading) {
+          return;
+        }
         form.reset();
       })
       .catch((error) => console.error(error));

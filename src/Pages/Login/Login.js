@@ -6,7 +6,7 @@ import useTitle from "../../Hooks/useTitles";
 import SocialLogin from "./SocialLogin/SocialLogin";
 
 const Login = () => {
-  const { user, signIn, setUser } = useContext(AuthContext);
+  const { user, signIn, setUser, loading } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -21,7 +21,9 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-
+        if (loading) {
+          return;
+        }
         const currentUser = {
           email: user.email,
         };
