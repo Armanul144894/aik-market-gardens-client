@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import useTitle from "../../../Hooks/useTitles";
 import MyReviews from "../../MyReviews/MyReviews";
-import ServiceReview from "../ServiceReview/ServiceReview";
-
+import "react-photo-view/dist/react-photo-view.css";
 const ServiceDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
   //   const [serviceReview, setServiceReview] = useState();
   const { img, title, price, _id, description } = service;
 
+  useTitle(`${title}`);
   console.log(service);
 
   const handlePlaceReview = (event) => {
@@ -58,8 +60,11 @@ const ServiceDetails = () => {
     <div>
       <div className="card mb-10 h-full glass">
         <div className="card-body">
-          <img src={img} alt="" className="rounded" />
-
+          <PhotoProvider maskOpacity={0.5}>
+            <PhotoView src={img}>
+              <img src={img} style={{ objectFit: "cover" }} alt="" />
+            </PhotoView>
+          </PhotoProvider>
           <h2 className="card-title">{title}</h2>
           <div className="flex gap-5 text-justify">
             <div>
@@ -120,7 +125,7 @@ const ServiceDetails = () => {
                 <input
                   className="btn btn-accent text-white font-bold w-full mt-5 mb-10"
                   type="submit"
-                  value="Order Confirm"
+                  value="Submit Review"
                 />
               </form>
             </div>

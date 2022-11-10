@@ -17,7 +17,7 @@ const Services = () => {
         <ServiceItems key={service._id} service={service}></ServiceItems>
       ))}
 
-      <Link to="/allServices">
+      <Link to="/services">
         <button className="btn btn-accent my-10 px-10 text-white font-bold">
           Show All
         </button>

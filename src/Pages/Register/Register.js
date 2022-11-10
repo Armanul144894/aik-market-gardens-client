@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import image from "../../assets/login/image.jpg";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import useTitle from "../../Hooks/useTitles";
 const Register = () => {
   const { cerateUser } = useContext(AuthContext);
+  useTitle("Register");
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;

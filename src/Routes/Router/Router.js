@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "../../Layoutes/Main/Main";
+import AddServices from "../../Pages/AddServices/AddServices";
 import AllServices from "../../Pages/AllServices/AllServices";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
@@ -23,7 +24,7 @@ const Router = () => {
           element: <Home></Home>,
         },
         {
-          path: "/allServices",
+          path: "/services",
           element: <AllServices></AllServices>,
         },
 
@@ -54,6 +55,10 @@ const Router = () => {
               <UserReview></UserReview>
             </PrivateRouter>
           ),
+        },
+        {
+          path: "/addServices",
+          element: <AddServices></AddServices>,
         },
         {
           path: "/blogs",
