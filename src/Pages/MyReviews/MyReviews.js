@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import React, { useEffect, useState } from "react";
+
 import ReviewsRow from "./ReviewsRow/ReviewsRow";
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -27,12 +26,7 @@ const MyReviews = () => {
           </thead>
           <tbody>
             {reviews.map((review) => (
-              <ReviewsRow
-                key={review._id}
-                review={review}
-                // handleDelete={handleDelete}
-                // handleStatusUpdate={handleStatusUpdate}
-              ></ReviewsRow>
+              <ReviewsRow key={review._id} review={review}></ReviewsRow>
             ))}
           </tbody>
         </table>

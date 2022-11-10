@@ -6,7 +6,6 @@ import AllServices from "../../Pages/AllServices/AllServices";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
-import MyReviews from "../../Pages/MyReviews/MyReviews";
 import UserReview from "../../Pages/MyReviews/UserReview/UserReview";
 import NotFound from "../../Pages/NotFound/NotFound";
 import Register from "../../Pages/Register/Register";

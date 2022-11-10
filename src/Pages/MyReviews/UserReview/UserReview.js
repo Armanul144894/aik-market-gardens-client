@@ -3,7 +3,6 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useTitle from "../../../Hooks/useTitles";
 import ShowReviews from "./ShowReviews";
 import toast, { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
 
 const UserReview = () => {
   const { user, loading, logout } = useContext(AuthContext);

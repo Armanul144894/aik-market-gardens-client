@@ -38,8 +38,8 @@ const Login = () => {
           .then((data) => {
             // ("Success:", data);
             localStorage.setItem("aikToken", data.token);
+            navigate(from, { replace: true });
           });
-        navigate(from, { replace: true });
       })
       .catch((error) => error);
   };

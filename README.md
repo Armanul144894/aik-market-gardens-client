@@ -2,6 +2,10 @@
 
 AIK Market Gardens
 
+# Client side repo link: [https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-Armanul144894]
+
+# Server side repo link: [https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-Armanul144894]
+
 # Live site Link: [https://aik-market-gardens.web.app/]
 
 # About My Website

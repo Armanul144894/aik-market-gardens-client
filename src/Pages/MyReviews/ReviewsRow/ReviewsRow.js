@@ -4,8 +4,7 @@ import userLogo from "../../../assets/users/user.png";
 
 const ReviewsRow = ({ review }) => {
   const { user } = useContext(AuthContext);
-  const { _id, serviceName, price, message, image, customer, service, status } =
-    review;
+  const { serviceName, price, image, customer } = review;
 
   return (
     <tr>
