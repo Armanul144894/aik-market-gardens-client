@@ -21,7 +21,7 @@ const ServiceItems = ({ service }) => {
           <div className="flex gap-5 text-justify">
             <div>
               <p className="text-red-600 font-bold">Price: ${price}</p>
-              <p>{description.slice(0, 150)}...</p>
+              <p>{description.slice(0, 100)}...</p>
             </div>
           </div>
           <Link to={`/details/${_id}`}>
