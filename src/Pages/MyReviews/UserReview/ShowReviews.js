@@ -17,13 +17,13 @@ const ShowReviews = ({ review, handleDelete, handleUpdate }) => {
               <div className="card-actions">
                 <button
                   onClick={() => handleDelete(_id)}
-                  className="btn btn-primary"
+                  className="btn btn-primary text-white"
                 >
                   Delete
                 </button>
                 <button
                   onClick={() => handleUpdate(_id)}
-                  className="btn btn-ghost btn-xs"
+                  className="btn btn-primary text-white"
                 >
                   {status ? status : "pending"}
                 </button>

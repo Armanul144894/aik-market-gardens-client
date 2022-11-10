@@ -12,7 +12,7 @@ const ReviewsRow = ({ review }) => {
       <td>
         <div className="flex items-center space-x-3">
           <div className="avatar">
-            <div className="rounded w-24 h-24">
+            <div className="rounded-full w-24 h-24">
               {user?.uid ? (
                 <img src={image} alt="Avatar Tailwind CSS Component" />
               ) : (

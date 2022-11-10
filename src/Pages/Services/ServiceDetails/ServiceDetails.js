@@ -49,7 +49,7 @@ const ServiceDetails = () => {
       .then((data) => {
         console.log("Success:", data);
         if (data.acknowledged) {
-          toast.success("order placed successfully");
+          toast.success("Review placed successfully");
           form.reset();
         }
       })
@@ -76,9 +76,7 @@ const ServiceDetails = () => {
           </div>
         </div>
       </div>
-      <div>
-        <MyReviews></MyReviews>
-      </div>
+
       <div>
         {user?.email ? (
           <>
@@ -159,6 +157,9 @@ const ServiceDetails = () => {
             </div>
           </>
         )}
+      </div>
+      <div className="my-5">
+        <MyReviews></MyReviews>
       </div>
       <Toaster></Toaster>
     </div>

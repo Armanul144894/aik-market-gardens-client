@@ -33,7 +33,7 @@ const Header = () => {
           </Link>
           <button
             onClick={handleLogout}
-            className=" rounded btn-ghost font-semibold ml-5"
+            className=" font-semibold btn btn-ghost ml-5"
           >
             Logout
           </button>

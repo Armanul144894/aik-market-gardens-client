@@ -3,6 +3,7 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useTitle from "../../../Hooks/useTitles";
 import ShowReviews from "./ShowReviews";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const UserReview = () => {
   const { user, loading, logout } = useContext(AuthContext);
@@ -76,14 +77,16 @@ const UserReview = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-    toast("Update Successfully");
+    toast.success("Update Successfully");
   };
   return (
     <div>
       {reviews.length === 0 ? (
         <>
           <div className="my-10">
-            <h1>No reviews were added</h1>{" "}
+            <h1 className="text-red-500 text-2xl font-bold">
+              No reviews were added
+            </h1>
           </div>
         </>
       ) : (
