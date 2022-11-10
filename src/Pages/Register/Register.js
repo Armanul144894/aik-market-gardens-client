@@ -24,6 +24,9 @@ const Register = () => {
       })
       .catch((error) => console.error(error));
   };
+  if (loading) {
+    return <div className="loader absolute left-1/2 top-20"></div>;
+  }
   return (
     <div>
       <div className="hero w-full my-10">

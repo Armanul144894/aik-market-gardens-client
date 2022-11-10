@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../Hooks/useTitles";
 
 const NotFound = () => {
+  useTitle("Blank Page");
   return (
     <div className="text-center ">
       <div className=" card shadow">

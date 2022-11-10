@@ -4,6 +4,7 @@ import image from "../../assets/login/images2.jpg";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../Hooks/useTitles";
 import SocialLogin from "./SocialLogin/SocialLogin";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const { user, signIn, setUser, loading } = useContext(AuthContext);
@@ -40,6 +41,7 @@ const Login = () => {
             localStorage.setItem("aikToken", data.token);
             navigate(from, { replace: true });
           });
+        toast.success("Login Successfully");
       })
       .catch((error) => error);
   };
@@ -107,6 +109,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };
