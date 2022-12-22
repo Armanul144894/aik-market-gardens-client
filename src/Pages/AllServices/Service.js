@@ -27,7 +27,7 @@ const Service = ({ service }) => {
             </div>
           </div>
           <Link to={`/details/${_id}`}>
-            <button className="btn w-1/2 my-5 btn-outline">Details</button>
+            <button className="btn w-full my-5 btn-outline">Details</button>
           </Link>
         </div>
       </div>

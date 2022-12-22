@@ -17,17 +17,18 @@ const Services = () => {
     return <div className="loader"></div>;
   }
   return (
-    <div>
-      {services.map((service) => (
-        <ServiceItems key={service._id} service={service}></ServiceItems>
-      ))}
-
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <ServiceItems key={service._id} service={service}></ServiceItems>
+        ))}
+      </div>
       <Link to="/services">
-        <button className="btn btn-accent my-10 px-10 text-white font-bold">
+        <button className="btn btn-accent  my-10 px-10 text-white font-bold">
           Show All
         </button>
       </Link>
-    </div>
+    </>
   );
 };
 

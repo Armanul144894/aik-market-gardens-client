@@ -10,9 +10,9 @@ const AboutUs = () => {
 
       <div className="card lg:card-side bg-base-100 shadow-xl my-10">
         <figure>
-          <img className="rounded w-96  h-80" src={about} alt="" />
+          <img className="rounded w-96 h-80" src={about} alt="" />
         </figure>
-        <div className="card-body text-start w-96">
+        <div className="card-body  sm:w-full text-start">
           <h2 className="card-title">AIK Market Gardens</h2>
           <p>
             I grow, pack, market & distribute quality fresh herbs, spring
